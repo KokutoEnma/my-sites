@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import ChatDisplay from './ChatDisplay'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import Socket from '../../scripts/Socket';
+import Socket from '../../utils/Socket';
 import arrow from '../../images/right-arrow.png'
 
 
