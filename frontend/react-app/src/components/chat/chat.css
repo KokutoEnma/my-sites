@@ -1,0 +1,101 @@
+.chat-wrapper{
+    width: 80%;
+    margin-left: 10%;
+    position: absolute;
+    top:84px;
+    bottom: 84px;
+    min-height: 72px;
+    min-width: calc(576px + 289px);
+    border:black solid 1px;
+    border-radius: 20px;
+    min-height: 288px;
+}
+
+.chatroom-left{
+    width: 288px;
+    height: 100%;
+    border-right: black solid 1px;
+    display: inline-block;
+    float: left;
+}
+
+.chatroom-right{
+    height: 100%;
+    width: calc(100% - 289px);
+    min-width: 576px;
+    display: inline-block;
+    float: right;
+}
+
+.chatlist-self-tag{
+    width: 90%;
+    margin-left: 5%;
+    height: 20%;
+    margin-top: 5%;
+    position: relative;
+    border-bottom: black solid 1px;
+}
+
+.chatlist-self-tag-input{
+    top: 30px;
+    width: 80%;
+    word-wrap: break-word;
+    white-space: nowrap;
+}
+
+
+
+.chat-display{
+    background-color: blueviolet;
+    height: 80%;
+    margin-top: 24px;
+    width: 90%;
+    margin-left: 5%;
+}
+
+.thumb{
+    background-color: rgba(119, 119, 119, 0.521);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.thumb:hover{
+    background-color: rgb(119, 119, 119);
+}
+
+.chat-input{
+    width: 80%;
+    top: 24px;
+    border-radius: 20px;
+    left: 10%;
+    float: left;
+}
+.chat-input > .MuiOutlinedInput-root{
+    border-radius: 20px;
+}
+
+.chat-input > .MuiOutlinedInput-root > input{
+    width: 80%;
+}
+
+.chatroom-right > .MuiButton-contained.Mui-disabled{
+    color:rgba(0, 0, 0, 1);
+    background-color : gray;
+}
+
+.chatroom-right > .MuiButton-root{
+    border-radius: 20px;
+    min-width: 40px;
+    width: 40px;
+}
+
+.chat-input-btn{
+    height: 40px;
+    top: 24px;
+    left: -16px;
+}
+
+.chat-input-btnico{
+    width: 32px;
+    height: 32px;
+}

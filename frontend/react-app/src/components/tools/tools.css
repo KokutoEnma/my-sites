@@ -1,0 +1,48 @@
+.topnav-wrapper{
+    height: 72px;
+    padding-inline-start: 20%;
+    padding-inline-end: 20%;
+    border-bottom: black solid 1px;
+    position: fixed;
+    width: 100%;
+    top:0px;
+}
+
+.topnav-text{
+    margin-top:7px;
+    width: 100%;
+}
+
+.far{
+    line-height:inherit;
+}
+
+.topnav-itembox{
+    background-color: inherit;
+    color:black;
+    height: 36px;
+    margin-left: 5%;
+    margin-top: 18px;
+    min-width: 72px;
+    font-size: 18px;
+    display: inline-block;
+    position: relative;
+    transition: ease-in-out 0.3s;
+}
+
+.topnav-itembox:hover{
+    color:darkgray;
+}
+
+.topnav-minecraft-icon{
+    position: relative;
+    top:2px;
+}
+
+.topnav-icon{
+    top:5px;
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+}
