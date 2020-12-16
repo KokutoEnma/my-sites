@@ -8,7 +8,9 @@
         "build": "cd frontend/react-app && npm run build",
         "install": "cd frontend/react-app && npm install",
         "server": "python manage.py runserver",
-        "uninstall": "cd frontend/react-app && npm uninstall"
+        "uninstall": "cd frontend/react-app && npm uninstall",
+        "collect": "python manage.py collectstatic --no-input",
+        "daphne": "daphne -b 0.0.0.0 -p 8000 myproject.asgi:application"
     },
     "keywords": [],
     "author": "",

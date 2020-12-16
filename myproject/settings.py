@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'k@&0tep4148ui18&gso9x*f0sh)ryd3y=k=1etq0f_qa6s^gg='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -86,9 +86,9 @@ ASGI_APPLICATION = "myproject.asgi.application"
 CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
-        'CONFIG': {
-            "hosts": [("redis-server-name", 6379)],
-        },
+        # 'CONFIG': {
+        #     "hosts": [("127.0.0.1", 6379)],
+        # },
     },
 }
 
@@ -148,3 +148,12 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'
+
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+REACT_APP_DIR = os.path.join(BASE_DIR, 'frontend/react-app')
+STATICFILES_DIRS = [
+    os.path.join(REACT_APP_DIR, 'build', 'static'), 
+    os.path.join(BASE_DIR, 'frontend/static')
+    ]
