@@ -67230,7 +67230,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ChatDisplay__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ChatDisplay */ "./src/components/chat/ChatDisplay.js");
 /* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/TextField */ "./node_modules/@material-ui/core/esm/TextField/index.js");
 /* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/index.js");
-/* harmony import */ var _scripts_Socket__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../scripts/Socket */ "./src/scripts/Socket.js");
+/* harmony import */ var _utils_Socket__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils/Socket */ "./src/utils/Socket.js");
 /* harmony import */ var _images_right_arrow_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../images/right-arrow.png */ "./src/images/right-arrow.png");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -67297,7 +67297,7 @@ var ChatLobby = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      this.socket = new _scripts_Socket__WEBPACK_IMPORTED_MODULE_5__["default"]('chat/lobby');
+      this.socket = new _utils_Socket__WEBPACK_IMPORTED_MODULE_5__["default"]('chat/lobby');
       this.socket.connect(function (e) {
         return console.log(e);
       });
@@ -67878,10 +67878,10 @@ react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEB
 
 /***/ }),
 
-/***/ "./src/scripts/Socket.js":
-/*!*******************************!*\
-  !*** ./src/scripts/Socket.js ***!
-  \*******************************/
+/***/ "./src/utils/Socket.js":
+/*!*****************************!*\
+  !*** ./src/utils/Socket.js ***!
+  \*****************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 

@@ -1,7 +1,7 @@
-# from django.shortcuts import render 
-from rest_framework.views import APIView 
+# from django.shortcuts import render
+from rest_framework.views import APIView
 from frontend.models import *
-from rest_framework.response import Response 
+from rest_framework.response import Response
 from frontend.serializer import *
 from django.http import HttpResponse
 from django.views.generic import View
@@ -11,23 +11,25 @@ from django.template import loader
 
 import logging
 import os
-# Create your views here. 
-  
-class SerializerView(APIView): 
-    
-    serializer_class = ReactSerializer 
-  
-    def get(self, request): 
-        detail = [ {"name": detail.name,"detail": detail.detail}  
-        for detail in React.objects.all()] 
-        return Response(detail) 
-  
-    def post(self, request): 
-  
-        serializer = ReactSerializer(data=request.data) 
-        if serializer.is_valid(raise_exception=True): 
-            serializer.save() 
-            return  Response(serializer.data) 
+# Create your views here.
+
+
+class SerializerView(APIView):
+
+    serializer_class = ReactSerializer
+
+    def get(self, request):
+        detail = [{"name": detail.name, "detail": detail.detail}
+                  for detail in React.objects.all()]
+        return Response(detail)
+
+    def post(self, request):
+
+        serializer = ReactSerializer(data=request.data)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save()
+            return Response(serializer.data)
+
 
 class FrontendAppView(View):
     """
@@ -38,7 +40,7 @@ class FrontendAppView(View):
     def get(self, request):
         try:
             # with open(os.path.join(settings.REACT_APP_DIR, 'build', 'index.html')) as f:
-            #     return HttpResponse(f.read())
+            #         return HttpResponse(f.read())
             t = loader.get_template('index.html')
             return HttpResponse(t.render(None, request))
         except FileNotFoundError:
