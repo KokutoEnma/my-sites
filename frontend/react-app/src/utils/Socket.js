@@ -1,7 +1,7 @@
-import { server } from '../config'
+// import { server } from '../config'
 export default class Socket {
     constructor(directory) {
-        this.socket = new WebSocket(`ws://localhost:8000/ws/${directory}/`)
+        this.socket = new WebSocket(`ws://${window.location.href}/ws/${directory}/`)
     }
 
     on = callback => {
