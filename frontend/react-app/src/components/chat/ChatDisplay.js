@@ -14,7 +14,7 @@ class ChatDisplay extends React.Component {
             >
                 {
                     this.props.chatHistory.map((e, i) =>
-                        <p key={i}>{e.username + ":" + e.msg}</p>
+                        <p key={i}>{e.username + ":" + e.message}</p>
                     )
                 }
 

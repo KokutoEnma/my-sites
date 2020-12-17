@@ -19,7 +19,7 @@ class ChatLobby extends React.Component {
     handleSendMessage = () => {
         this.socket.emit({
             username: this.state.selfName,
-            msg: this.state.inputText
+            message: this.state.inputText
         })
         this.setState({ inputText: "" })
     }
@@ -29,8 +29,15 @@ class ChatLobby extends React.Component {
         this.socket.connect(e => console.log(e))
         this.socket.on(data => {
             let { chatHistory } = this.state
-            chatHistory.push(data)
-            this.setState(chatHistory)
+            if (data.length === undefined) {
+                chatHistory.push(data)
+                this.setState(chatHistory)
+            } else {
+                data.forEach(element => {
+                    chatHistory.push(element)
+                });
+                this.setState(chatHistory)
+            }
         })
     }
 

@@ -12,8 +12,11 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
-import mimetypes
-mimetypes.add_type("application/javascript", ".js", True)
+import dotenv
+from dotenv import load_dotenv
+load_dotenv()
+
+ENVIRONMENT = os.environ['ENVIRONMENT']
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -86,21 +89,33 @@ ASGI_APPLICATION = "myproject.asgi.application"
 CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
-        # 'CONFIG': {
-        #     "hosts": [("127.0.0.1", 6379)],
-        # },
+        'CONFIG': {
+            "hosts": [("127.0.0.1", 6379)],
+        },
     },
 }
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+    "default": {
+        "ENGINE": "djongo",
+        "CLIENT": {
+            "host": "mongodb://192.168.0.16:27017" if ENVIRONMENT == 'development' else "mongodb://localhost:27017",
+            "username": "shaw",
+            "password": "0058",
+            "name": "my-sites",
+            "authMechanism": "SCRAM-SHA-1",
+        },
+    }}
 
 
 # Password validation
@@ -154,5 +169,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 REACT_APP_DIR = os.path.join(BASE_DIR, 'frontend/react-app')
 STATICFILES_DIRS = [
-    os.path.join(REACT_APP_DIR, 'build', 'static'), 
+    os.path.join(REACT_APP_DIR, 'build', 'static'),
 ]
