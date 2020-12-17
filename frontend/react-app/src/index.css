@@ -2,3 +2,16 @@
     margin-top:72px;
     text-align: center;
 }
+
+.content-wrapper{
+    width: 80%;
+    margin-left: 10%;
+    position: absolute;
+    top:84px;
+    min-width: calc(576px + 289px);
+    border:black solid 1px;
+    border-top: none;
+    border-bottom: none;
+    min-height: 288px;
+    text-align: left;
+}
