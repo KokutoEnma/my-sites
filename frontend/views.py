@@ -41,8 +41,7 @@ class FrontendAppView(View):
         try:
             with open(os.path.join(settings.REACT_APP_DIR, 'build', 'index.html')) as f:
                     return HttpResponse(f.read())
-            # t = loader.get_template('index.html')
-            # return HttpResponse(t.render(None, request))
+
         except FileNotFoundError:
             logging.exception('Production build of app not found')
             return HttpResponse(
