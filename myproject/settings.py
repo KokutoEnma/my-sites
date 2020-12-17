@@ -109,7 +109,7 @@ DATABASES = {
     "default": {
         "ENGINE": "djongo",
         "CLIENT": {
-            "host": "mongodb://192.168.0.16:27017" if ENVIRONMENT == 'development' else "mongodb://localhost:27017",
+            "host": "mongodb://192.168.0.16:27017" if ENVIRONMENT == 'development' else "mongodb://127.0.0.1:27017",
             "username": "shaw",
             "password": "0058",
             "name": "my-sites",
