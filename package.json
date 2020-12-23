@@ -1,19 +1,22 @@
 {
-    "name": "my-sites",
-    "version": "1.0.0",
-    "main": "index.js",
-    "scripts": {
-        "start": "cd frontend/react-app && npm start",
-        "dev": "cd frontend/react-app && npm run dev",
-        "build": "cd frontend/react-app && npm run build",
-        "install": "cd frontend/react-app && npm install",
-        "server": "python manage.py runserver",
-        "uninstall": "cd frontend/react-app && npm uninstall",
-        "collect": "python manage.py collectstatic --no-input",
-        "daphne": "daphne -b 0.0.0.0 -p 8000 myproject.asgi:application"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "dependencies": {}
+  "name": "my-sites",
+  "version": "1.0.0",
+  "description": "Useful documents: [how to set up in ubuntu with apache](https://github.com/AhoyKakkoii/Django-Deploy-Doc)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "frontend": "cd frontend && npm start",
+    "backend": "cd backend && python manage.py runserver",
+    "install": "cd frontend && npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AhoyKakkoii/my-sites.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AhoyKakkoii/my-sites/issues"
+  },
+  "homepage": "https://github.com/AhoyKakkoii/my-sites#readme"
 }

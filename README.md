@@ -17,13 +17,8 @@ pip install -r requirements.txt
 ```
 
 Note: there is a .env file in root directory, add in case missing:
-1. if on local machine
 ```
 FRONTEND_URL=localhost:3000
 BACKEND_URL=localhost:8000
-```
-2. if on deployment machine
-```
-FRONTEND_URL=www.shaw-yu.com
-BACKEND_URL=www.shaw-yu.com
+ENVIRONMENT=development
 ```
