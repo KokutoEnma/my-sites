@@ -1,30 +1,25 @@
+import React from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import TopNav from './components/tools/TopNav'
-import HomeScreen from './components/home/HomeScreen'
+import "assets/scss/material-kit-react.scss?v=1.9.0";
 
-import React from 'react'
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import AppScreen from './components/app/AppScreen';
-import AboutScreen from './components/about/AboutScreen';
-import MinecraftScreen from './components/minecraft/MinecraftScreen';
-import ChatLobby from './components/chat/ChatLobby'
+// pages for this product
+import TopNav from 'views/components/TopNav'
+import HomeScreen from 'views/home/HomeScreen'
+
 
 function App() {
     return (
         <BrowserRouter>
+            <div className="background"></div>
             <TopNav />
-            <div className="screen-wrapper">
-                <Switch>
-                    <Route exact path="/" component={HomeScreen} />
-                    <Route exact path="/app" component={AppScreen} />
-                    <Route exact path="/app/chat" component={ChatLobby} />
-                    <Route exact path="/about" component={AboutScreen} />
-                    <Route exact path="/minecraftinfo" component={MinecraftScreen} />
-                    <Route path="/:any" component={HomeScreen} />
-                </Switch>
-            </div>
+            <Switch>
+                <Route exact path="/" component={HomeScreen} />
+                <Route path="/:any" component={HomeScreen} />
+            </Switch>
 
-        </BrowserRouter>
+
+        </BrowserRouter >
     );
 }
 

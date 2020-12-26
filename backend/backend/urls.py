@@ -1,9 +1,10 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.conf.urls import url
-from frontend.views import *
+from frontend.views import FrontendAppView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('wel/', SerializerView.as_view(), name="something"),
+    path('api/app/chat', include('chat.urls')),
     url(r'^', FrontendAppView.as_view()),
 ]

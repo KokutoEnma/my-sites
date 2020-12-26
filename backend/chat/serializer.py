@@ -1,14 +1,11 @@
 from rest_framework import serializers
-from customers.models import Customer
+from .models import Message
 
 
-class CustomerSerializer(serializers.ModelSerializer):
+class MessageSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = Customer
-        fields = ('id',
-                  'firstname',
-                  'lastname',
-                  'age',
-                  'address',
-                  'copyrightby')
+        model = Message
+        fields = ('username',
+                  'message'
+                  )

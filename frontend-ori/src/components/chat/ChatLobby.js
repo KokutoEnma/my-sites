@@ -5,7 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Socket from '../../utils/Socket';
 import arrow from '../../images/right-arrow.png'
-
+import axios from 'axios'
 
 class ChatLobby extends React.Component {
 
@@ -25,6 +25,7 @@ class ChatLobby extends React.Component {
     }
 
     componentDidMount() {
+        axios.get('/api/app/chat/lobby/').then(e => console.log(e.data))
         this.socket = new Socket('chat/lobby');
         this.socket.connect(e => console.log(e))
         this.socket.on(data => {

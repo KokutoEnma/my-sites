@@ -1,16 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import * as serviceWorker from './serviceWorker';
 
-import './index.css'
-import './components/tools/tools.css'
-import './components/chat/chat.css'
-import './components/app/app.css'
-
+import './css/css.js'
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 ReactDOM.render(
-    <React.StrictMode>
+    <React.Fragment>
         <App />
-    </React.StrictMode>,
+    </React.Fragment>,
     document.getElementById('root')
 );
+
+
+serviceWorker.unregister();
