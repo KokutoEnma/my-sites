@@ -23,19 +23,19 @@ export default function TopNav() {
             }}
             rightLinks={
                 <List className={classes.list}>
-                    <ListItem className={classes.listItem + " topnav-btn "} >
+                    <ListItem className={classes.listItem + " radius-btn "} >
                         <Button color="transparent" className={classes.navLink + " " + classes.socialIconsButton} href='/' >
                             <i className={classes.socialIcons + " " + classes.marginRight5 + " fas fa-home"} />{" "}
                             Home
                         </Button>
                     </ListItem>
-                    <ListItem className={classes.listItem + " topnav-btn "}>
+                    <ListItem className={classes.listItem + " radius-btn "}>
                         <Button color="transparent" className={classes.navLink + " " + classes.socialIconsButton} href='about' >
                             <i className={classes.socialIcons + " " + classes.marginRight5 + " fas fa-info-circle"} />{" "}
                             About
                         </Button>
                     </ListItem>
-                    <ListItem className={classes.listItem + " topnav-btn "}>
+                    <ListItem className={classes.listItem + " radius-btn "}>
                         <Button color="transparent" className={classes.navLink + " " + classes.socialIconsButton} href='app' >
                             <i className={classes.socialIcons + " " + classes.marginRight5 + " fab fa-react"} />{" "}
                             Web Apps

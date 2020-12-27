@@ -1,12 +1,3 @@
 .topnav{
     color:black !important;
 }
-
-
-.topnav-btn{
-    transition: all 0.3s;
-}
-.topnav-btn:hover{
-    background-color: lightgrey;
-    border-radius: 25px;
-}

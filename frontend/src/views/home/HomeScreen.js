@@ -16,7 +16,7 @@ export default function Screen() {
     const classes = useStyles();
     return (
         <>
-            <Parallax image={bg}>
+            <Parallax image={bg} >
                 <div className={classes.container}>
                     <GridContainer>
                         <GridItem>

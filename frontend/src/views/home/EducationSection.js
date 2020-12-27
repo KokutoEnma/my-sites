@@ -47,12 +47,12 @@ export default function EducationSection() {
     const [reverseOrdering, SetReverseOrdering] = React.useState(false);
 
     return (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.5 }} style={{ marginTop: 256 }}>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.5 }} style={{ marginTop: 128 }}>
             <Grid container className={classes.root} spacing={2}>
                 <Grid item container xs={12} justify='center'>
-                    <Button color='transparent' onClick={() => SetReverseOrdering(!reverseOrdering)}>
-                        <motion.div whileHover={{ scale: 1.4 }}
-                            whileTap={{ scale: 0.9 }}>
+                    <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }} className='radius-btn'>
+                        <Button color='transparent' onClick={() => SetReverseOrdering(!reverseOrdering)}>
+
                             <Grid container justify="center" spacing={4}>
                                 <Grid item>
                                     <Typography variant="subtitle1" gutterBottom className={classes.title}>
@@ -80,8 +80,9 @@ export default function EducationSection() {
                                     </div>
                                 </Grid>
                             </Grid>
-                        </motion.div>
-                    </Button>
+
+                        </Button>
+                    </motion.div>
                 </Grid>
             </Grid>
             <Educatoins classes={classes} ordering={reverseOrdering} />
@@ -104,7 +105,7 @@ function Educatoins(props) {
             <motion.div
                 animate='show'
                 initial='hidden'
-                transition={{ staggerChildren: 0.1 }}
+                transition={{ staggerChildren: 0.2 }}
                 varients={{
                     show: { opacity: 1 },
                     hidden: { opacity: 0 }
@@ -118,6 +119,9 @@ function Educatoins(props) {
                                 hidden: { y: 100, opacity: 0 }
                             }}
                             key={key}
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
+                            style={{ transition: 'all 0.3s' }}
                         >
                             <Paper variant="outlined" className={classes.paper} key={key}>
                                 <Grid container spacing={2}>

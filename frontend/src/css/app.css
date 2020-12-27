@@ -10,3 +10,11 @@
     width: 100vw;
     height: 100vh;
 }
+
+.radius-btn{
+    transition: all 0.3s;
+}
+.radius-btn:hover{
+    background-color: lightgrey;
+    border-radius: 25px;
+}
