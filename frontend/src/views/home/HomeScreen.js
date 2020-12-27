@@ -1,20 +1,22 @@
 import Parallax from "components/Parallax/Parallax.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
+import EducationSection from 'views/home/EducationSection'
+import ExperienceSection from 'views/home/ExperienceSection'
 
 import { motion } from 'framer-motion'
 
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/components.js";
 import bg from 'assets/img/blue-sky-bg.png'
+
 const useStyles = makeStyles(styles);
 
 export default function Screen() {
     const classes = useStyles();
-
     return (
         <>
-            <Parallax image={bg} style={{ height: 300 }}>
+            <Parallax image={bg}>
                 <div className={classes.container}>
                     <GridContainer>
                         <GridItem>
@@ -30,6 +32,8 @@ export default function Screen() {
                     </GridContainer>
                 </div>
             </Parallax>
+            <EducationSection />
+            <ExperienceSection />
         </>
     )
 

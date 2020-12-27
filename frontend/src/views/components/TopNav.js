@@ -19,7 +19,7 @@ export default function TopNav() {
             color="transparent"
             changeColorOnScroll={{
                 height: 400,
-                color: "black"
+                color: "white"
             }}
             rightLinks={
                 <List className={classes.list}>
