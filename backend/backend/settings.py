@@ -19,7 +19,7 @@ load_dotenv()
 ENVIRONMENT = os.environ['ENVIRONMENT']
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -43,22 +43,79 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
     # 3rd party
     'corsheaders',
     'rest_framework',
+    'rest_framework.authtoken',
     'channels',
+    'ckeditor',
+
+    # social auth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.line',
 
     # my app
     'frontend',
-    'chat'
+    'chat',
+    'social_auth',
+    'blog'
 ]
+
+# allauth settings
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+SITE_ID = 1
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    },
+    'github': {
+        'SCOPE': [
+            'user',
+            'repo',
+            'read:org',
+        ],
+    },
+    'facebook': {
+        'SCOPE': ['email', 'public_profile'],
+        'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+        'METHOD': 'oauth2',
+        'VERIFIED_EMAIL': False,
+        'FIELDS': [
+            'id',
+            'first_name',
+            'last_name',
+            'middle_name',
+            'name',
+            'name_format',
+            'picture',
+            'short_name'
+        ],
+    }
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -101,21 +158,32 @@ CHANNEL_LAYERS = {
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
 
 DATABASES = {
-    "default": {
-        "ENGINE": "djongo",
-        "CLIENT": {
-            "host": "mongodb://192.168.1.153:27017" if ENVIRONMENT == 'development' else "mongodb://127.0.0.1:27017",
-            "username": "shaw",
-            "password": "0058",
-            "name": "my-sites",
-            "authMechanism": "SCRAM-SHA-1",
-        },
-    }}
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'my_sites',
+        'USER': 'postgres',
+        'PASSWORD': '0058',
+        'HOST': '192.168.1.153',
+        'PORT': '5432'
+    }
+}
+
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "djongo",
+#         "CLIENT": {
+#             "host": "mongodb://192.168.1.153:27017" if ENVIRONMENT == 'development' else "mongodb://127.0.0.1:27017",
+#             "username": "shaw",
+#             "password": "0058",
+#             "name": "my-sites",
+#             "authMechanism": "SCRAM-SHA-1",
+#         },
+#     }}
 
 
 # Password validation
@@ -139,7 +207,25 @@ AUTH_PASSWORD_VALIDATORS = [
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.AllowAny']
 }
+SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
+SESSION_SAVE_EVERY_REQUEST = True
+SESSION_COOKIE_HTTPONLY = True
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SESSION_COOKIE_SECURE = False
+SESSION_TIMEOUT = 1800
 CORS_ORIGIN_ALLOW_ALL = True
+
+# ckeditor
+CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_IMAGE_BACKEND = "pillow"
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': None,
+    },
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
@@ -160,14 +246,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR.parent, 'media')
-
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_URL = '/media/'
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
-STATIC_ROOT = os.path.join(BASE_DIR.parent, 'static/')
-
-REACT_APP_DIR = os.path.join(BASE_DIR.parent, 'frontend')
+REACT_APP_DIR = os.path.join(BASE_DIR, 'frontend')
 
 STATICFILES_DIRS = [
     os.path.join(REACT_APP_DIR, 'build', 'static'),

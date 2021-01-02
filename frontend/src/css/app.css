@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Langar&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Graduate&display=swap');
 
@@ -6,8 +6,8 @@
 #root{
     font-family: Arial, Helvetica, sans-serif;
     margin-top: 0px;
-    left: 0px;
-    width: 100vw;
+    margin-left: 5vw;
+    width: 90vw;
     height: 100vh;
 }
 

@@ -6,9 +6,21 @@ import * as serviceWorker from './serviceWorker';
 import './css/css.js'
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
+import { Provider } from 'react-redux';
+import store from './store/store'
+
+
+const Index = () => {
+    return (
+        <Provider store={store}>
+            <App />
+        </Provider>
+    )
+}
+
 ReactDOM.render(
     <React.Fragment>
-        <App />
+        <Index />
     </React.Fragment>,
     document.getElementById('root')
 );

@@ -9,3 +9,6 @@ class Todo(models.Model):
 class Message(models.Model):
     username = models.CharField(max_length=30)
     message = models.CharField(max_length=200)
+
+    def __str__(self):
+        return '{}:{}'.format(self.username, self.message)
