@@ -7,7 +7,9 @@ import { Link } from 'react-router-dom';
 const useStyles = makeStyles(theme => (
     {
         footer: {
-            marginTop: 64
+            bottom: 0,
+            position: 'absolute',
+            width: '90vw'
         }
     }
 ));

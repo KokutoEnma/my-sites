@@ -25,7 +25,7 @@ export default function TitleSection() {
     ]
 
     const profile = useSelector(state => state.profile.profile)
-    const newBlogLink = profile === null ? '/signin' : '/blog/new'
+    const newBlogLink = profile === null ? { pathname: '/signin', state: { from: '/blog/new' } } : '/blog/new'
 
 
     const [popperOpen, setPopperOpen] = useState(false)
@@ -37,8 +37,8 @@ export default function TitleSection() {
     return (
         <>
             <Grid container className={classes.root} justify="center">
-                <Grid item className='radius-btn'>
-                    <Button color='transparent' onClick={e => {
+                <Grid item>
+                    <Button color='white' onClick={e => {
                         e.stopPropagation()
                         setPopperAnchor(e.currentTarget)
                         setPopperOpen(!popperOpen)
@@ -46,11 +46,13 @@ export default function TitleSection() {
                         Sort
                     </Button>
                 </Grid>
-                <Grid item className='radius-btn'>
+                <Grid item>
                     <Link to={newBlogLink} style={{ color: 'black' }}>
-                        <Button color='transparent'>
-                            create new
-                    </Button>
+                        <div>
+                            <Button color='white'>
+                                create new
+                            </Button>
+                        </div>
                     </Link>
                 </Grid>
             </Grid>

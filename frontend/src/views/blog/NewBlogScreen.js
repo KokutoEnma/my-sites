@@ -1,9 +1,7 @@
 
-import DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
-// import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { useState } from 'react'
 import { useHistory } from "react-router-dom";
-import { CKEditor } from '@ckeditor/ckeditor5-react';
+import CKEditor from 'ckeditor4-react';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from '@material-ui/core/Typography';
@@ -11,7 +9,9 @@ import TextField from "@material-ui/core/TextField";
 import Button from "components/CustomButtons/Button";
 import axios from 'axios';
 import { urls } from 'utils/config'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { addBlogAction } from 'store/reducers/blogReducer'
+import { editor_config } from 'utils/config'
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -40,8 +40,15 @@ export default function NewBlogScreen() {
     const classes = useStyles()
     const [editData, setEditData] = useState('')
     const [subject, setSubject] = useState('')
+    const dispatch = useDispatch()
+    const addBlog = blog => dispatch(addBlogAction(blog))
     const profile = useSelector(state => state.profile.profile)
     const history = useHistory()
+    if (profile === null) {
+        history.push({ pathname: '/signin', state: { from: '/blog/new' } })
+        return null
+    }
+
     return (
         <>
             <Grid container className={classes.root} justify='center'>
@@ -73,17 +80,9 @@ export default function NewBlogScreen() {
                     </Grid>
                     <Grid item className={classes.editor}>
                         <CKEditor
-                            editor={DecoupledEditor}
+                            config={editor_config}
                             data={editData}
-                            onReady={editor => {
-                                // Add the toolbar to the container
-                                const toolbarContainer = document.querySelector('#toolbar-container');
-                                toolbarContainer.appendChild(editor.ui.view.toolbar.element);
-                            }}
-                            onChange={(event, editor) => {
-                                const data = editor.getData();
-                                setEditData(data)
-                            }}
+                            onChange={(evt) => setEditData(evt.editor.getData())}
                         />
                     </Grid>
                 </Grid>
@@ -96,7 +95,10 @@ export default function NewBlogScreen() {
                                 username: profile.username
                             }
                         }).then(res => {
-                            if (res.data.error === false) history.push('/blog')
+                            if (res.data.error === false) {
+                                addBlog(res.data.blog)
+                                history.push('/blog')
+                            }
                         })
                     }}>
                         Submit

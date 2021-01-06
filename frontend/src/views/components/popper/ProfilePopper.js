@@ -10,7 +10,8 @@ import { Grid } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        width: 500,
+        position: 'fixed !important',
+        zIndex: 10000
     },
     typography: {
         padding: theme.spacing(2),
@@ -23,7 +24,7 @@ export default function ProfilePopper(props) {
     const [open, setOpen] = useState(false)
     return (
         <>
-            <Popper open={props.open} anchorEl={props.anchorEl} placement={props.placement} transition>
+            <Popper open={props.open} anchorEl={props.anchorEl} placement={props.placement} transition className={classes.root}>
                 {({ TransitionProps }) => (
                     <Fade {...TransitionProps} timeout={350}>
                         <Paper>

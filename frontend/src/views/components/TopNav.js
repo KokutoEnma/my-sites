@@ -31,7 +31,7 @@ export default function TopNav(props) {
 
         const createProfile = profile => dispatch(createProfileAction(profile))
         const deleteProfile = () => dispatch(deleteProfileAction())
-        if (history.location.pathname !== '/signin' && history.location.pathname !== '/signup' && (profileState.loaded === false))
+        if (profileState.loaded === false)
             fetchProfile()
     }, [history, profileState, dispatch])
 
@@ -205,10 +205,11 @@ const Profile = props => {
                 setProfileOpen(!profileOpen)
                 props.setCurrent('profile')
             }} >
+                <Popper open={profileOpen} anchorEl={profileAnchor} placement='bottom-end' />
                 <img className={classes.socialIcons + " " + classes.marginRight5} alt='' src={props.profile.avatar_url} width={20} height={20} />
                 {props.profile.display_name}
             </Button>
-            <Popper open={profileOpen} anchorEl={profileAnchor} placement='bottom-end' />
+
         </>
     )
 }

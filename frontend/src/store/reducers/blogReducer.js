@@ -14,10 +14,10 @@ export default function reducers(state = initialState, { type, payload }) {
     }
     else if (type === ADD_BLOG) {
         let blogList = [...state.blogList]
-        blogList.append(payload)
+        blogList.push(payload)
         return {
+            ...state,
             blogList,
-            loaded: true
         }
     } else if (type === DELETE_BLOG) {
         let blogList = state.blogList.filter(e => e.id !== payload)
@@ -31,7 +31,7 @@ export default function reducers(state = initialState, { type, payload }) {
 }
 
 
-export const createBlogAction = blog => ({
+export const addBlogAction = blog => ({
     type: ADD_BLOG,
     payload: blog
 })

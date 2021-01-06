@@ -8,6 +8,7 @@ import { useState } from 'react'
 import SocialAuthSection from './SocialAuthSection'
 import { errorlistDecoder } from 'utils/utils'
 import Typography from '@material-ui/core/Typography';
+import { useSelector } from 'react-redux'
 
 
 const useStyles = makeStyles(() => ({
@@ -49,6 +50,8 @@ export default function SigninScreen() {
     const classes = useStyles();
     const history = useHistory();
     const prevUrl = history.location.state === undefined ? '/' : history.location.state.from
+    const { profile } = useSelector(state => state.profile)
+    if (profile !== null) history.push(prevUrl)
     return (
         <>
             <Grid container className={classes.root} direction="column" justify="center" alignItems="center">

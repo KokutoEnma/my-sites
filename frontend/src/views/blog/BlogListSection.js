@@ -5,29 +5,14 @@ import { fetchblogListAction } from 'store/reducers/blogReducer'
 import axios from 'axios'
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from "@material-ui/core/styles";
-import Typography from '@material-ui/core/Typography';
-import Paper from '@material-ui/core/Paper';
 import { motion } from 'framer-motion'
-import JsxParser from 'react-jsx-parser'
+import SingleBlog from './SingleBlog'
 
 const useStyles = makeStyles(() => ({
     root: {
         flexGrow: 1,
         marginTop: 64
     },
-    item: {
-        width: '64vw',
-        marginTop: '16px',
-        minHeight: '32px',
-        maxHeight: '194px',
-        overflow: 'hidden'
-    },
-    title: {
-        borderBottom: 'black solid 1px'
-    },
-    body: {
-        marginTop: '32px'
-    }
 }))
 
 export default function BlogListSection() {
@@ -73,19 +58,7 @@ export default function BlogListSection() {
                             style={{ transition: 'all 0.3s', marginTop: '24px' }}
                         >
                             <Link key={i} style={{ color: 'block' }} to={`/blog/${item.unique_id}`}>
-                                <Paper variant="outlined" className={classes.item}>
-                                    <Typography variant="subtitle1" align='center' >
-                                        {item.subject}
-                                    </Typography>
-                                    <Typography variant="subtitle1" align='left' className={classes.title}>
-                                        created by: {item.owner}
-                                        <Typography style={{ float: 'right' }} variant="body1" align='right' >
-                                            {item.created_time}
-                                        </Typography>
-                                    </Typography>
-                                    <Description description={item.description} />
-
-                                </Paper>
+                                <SingleBlog item={item} style={{ maxHeight: '128px' }} />
                             </Link>
                         </motion.div>
                     ))}
@@ -96,18 +69,4 @@ export default function BlogListSection() {
     )
 }
 
-const Description = props => {
-    const classes = useStyles()
-    return (
-        <div className={classes.body}>
-            {
-                props.description.map((item, key) => {
-                    if (item === "") return <br key={key}></br>
-                    else {
-                        return <JsxParser jsx={item} key={key} />
-                    }
-                })
-            }
-        </div>
-    )
-}
+
