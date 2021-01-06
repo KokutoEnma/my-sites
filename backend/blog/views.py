@@ -39,6 +39,42 @@ class NewBlog(APIView):
             description=res['description']
         )
         blog.save()
+        blog = vars(blog)
+        description_lines = [
+            line for line in blog['description'].splitlines()]
         return Response({
             "error": False,
+            "blog": {
+                'unique_id': blog['unique_id'],
+                'subject': blog['subject'],
+                'owner': blog['owner_id'],
+                'created_time': blog['created_time'],
+                'updated_time': blog['updated_time'],
+                'description': description_lines
+            }
         })
+
+
+class GetBlog(APIView):
+    def post(self, request):
+        key = json.loads(request.body)['key']
+        try:
+            blog = vars(BlogModel.objects.get(unique_id=key))
+            description_lines = [
+                line for line in blog['description'].splitlines()]
+            return Response({
+                'error': False,
+                'blog': {
+                    'unique_id': blog['unique_id'],
+                    'subject': blog['subject'],
+                    'owner': blog['owner_id'],
+                    'created_time': blog['created_time'],
+                    'updated_time': blog['updated_time'],
+                    'description': description_lines
+                }
+            })
+        except BlogModel.DoesNotExist:
+            return Response({
+                'error': True,
+                'message': 'Blog Not Found'
+            })
