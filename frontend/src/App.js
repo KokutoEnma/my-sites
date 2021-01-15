@@ -11,7 +11,8 @@ import SingleBlogView from 'views/blog/SingleBlogView'
 import BlogScreen from 'views/blog/BlogScreen'
 import SigninScreen from 'views/sign/SigninScreen'
 import SignupScreen from 'views/sign/SignupScreen'
-
+import StatuesScreen from 'views/app/statues/StatuesScreen'
+import AppScreen from 'views/app/AppScreen'
 
 import TopNav from 'views/components/TopNav'
 import Image from 'assets/img/light-bg.jpg'
@@ -40,6 +41,8 @@ function App() {
                     <Route exact path="/signup" component={SignupScreen} />
                     <Route exact path="/blog/new" component={NewBlogScreen} />
                     <Route exact path="/blog/:key" component={SingleBlogView} />
+                    <Route exact path="/app/statues" component={StatuesScreen} />
+                    <Route path="/app" component={AppScreen} />
                     <Route path="/blog" component={BlogScreen} />
                     <Route path="/:any" component={HomeScreen} />
                 </Switch>

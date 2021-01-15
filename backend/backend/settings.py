@@ -65,7 +65,8 @@ INSTALLED_APPS = [
     'frontend',
     'chat',
     'social_auth',
-    'blog'
+    'blog',
+    'mystatus'
 ]
 
 # allauth settings

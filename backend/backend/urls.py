@@ -37,7 +37,8 @@ urlpatterns = [
     path('api/auth/', include('allauth.urls')),
     path('api/auth/', include('social_auth.urls')),
     path('api/ckeditor/', include('ckeditor_uploader.urls')),
-    path('api/blog/', include('blog.urls'))
+    path('api/blog/', include('blog.urls')),
+    path('api/app/status/', include('mystatus.urls'))
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
