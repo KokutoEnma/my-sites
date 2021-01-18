@@ -28,7 +28,6 @@ export default function SocialAuthSection(props) {
     const list = [
         { name: 'Google', icon: <i className="fab fa-google"></i>, href: `http://${urls.backend}/api/auth/google/login/?next=${props.prevUrl}` },
         { name: 'Github', icon: <i className="fab fa-github"></i>, href: `http://${urls.backend}/api/auth/github/login/?next=${props.prevUrl}` },
-        { name: 'Facebook', icon: <i className="fab fa-facebook"></i>, href: `http://${urls.backend}/api/auth/facebook/login/?next=${props.prevUrl}` },
     ]
     return (
         <Grid item className={classes.root}>
