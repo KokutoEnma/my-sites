@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.github',
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.line',
+    'allauth.socialaccount.providers.discord',
 
     # my app
     'frontend',
