@@ -117,3 +117,6 @@ class ProfileUpdater:
             self.user.last_name = l_name
         self.display_name = self.account_data['name']
         self.avatar_url = self.account_data['picture']['data']['url']
+    
+    def discord(self):
+        self.display_name = self.account_data['username']
