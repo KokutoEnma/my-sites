@@ -1,7 +1,5 @@
-from rest_framework import routers
-from .api import MessageViewSet
-
-router = routers.DefaultRouter()
-router.register('chat/lobby', MessageViewSet, 'chat')
-
-urlpatterns = router.urls
+from django.urls import path
+from .views import *
+urlpatterns = [
+    path('', getUserChatDataView.as_view())
+]

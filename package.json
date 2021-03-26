@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/AhoyKakkoii/my-sites/issues"
   },
-  "homepage": "https://github.com/AhoyKakkoii/my-sites#readme"
+  "homepage": "https://github.com/AhoyKakkoii/my-sites#readme",
+  "dependencies": {
+    "react-custom-scrollbars": "^4.2.1"
+  }
 }

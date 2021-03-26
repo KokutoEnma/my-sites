@@ -7,23 +7,38 @@ const useStyles = makeStyles(() => ({
     root: {
         marginTop: 128,
         marginBottom: 128
+    },
+    btn: {
+        backgroundColor: 'lightblue',
+        color: 'black',
+        marginLeft: 16,
+        marginRight: 16
     }
 }))
 
 
 export default function AppScreen() {
     const classes = useStyles()
+    const list = [
+        { name: 'my status', link: '/status', newWindow: false },
+        { name: 'chat', link: '/chat', newWindow: false },
+        { name: 'flask movie cinema', link: { pathname: 'https://sqtbackend.azurewebsites.net/ui' }, newWindow: true },
+        { name: 'node angular responsive movie cinema', link: { pathname: 'https://tmdb-node-ng.uk.r.appspot.com/' }, newWindow: true }
+    ]
     return (
         <Grid container>
             <Grid container className={classes.root} justify='center'>
-                <Link to='app/statues'>
-                    <div className='radius-btn'>
-                        <Button color='transparent'>
-                            My Statues
-                        </Button>
-                    </div>
-
-                </Link>
+                {
+                    list.map(item => (
+                        <Link to={item.link} key={item.name} target={item.newWindow ? '_blank' : ''}>
+                            <div className={'radius-btn ' + classes.btn}>
+                                <Button color='transparent'>
+                                    {item.name}
+                                </Button>
+                            </div>
+                        </Link>
+                    ))
+                }
             </Grid>
         </Grid>
     )

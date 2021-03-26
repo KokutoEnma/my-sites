@@ -14,7 +14,7 @@ from pathlib import Path
 import os
 #import dotenv
 #from dotenv import load_dotenv
-#load_dotenv()
+# load_dotenv()
 
 #ENVIRONMENT = os.environ['ENVIRONMENT']
 
@@ -58,8 +58,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.github',
-    'allauth.socialaccount.providers.facebook',
-    'allauth.socialaccount.providers.line',
     'allauth.socialaccount.providers.discord',
 
     # my app

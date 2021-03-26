@@ -75,7 +75,6 @@ function LeftSection(props) {
     const [password, setPassword] = useState('')
     const [errorList, setErrorList] = useState([])
     const handleSignin = (u, p) => {
-        console.log(u, p)
         if (u === "" || p === "") {
             setErrorList(["All 2 Field are Required"])
         } else {
@@ -143,7 +142,7 @@ function LeftSection(props) {
 
             </Grid>
             <Button color="info" className={classes.button} onClick={
-                () => handleSignin()} >Enter</Button>
+                () => handleSignin(username, password)} >Enter</Button>
         </Grid>
     )
 }

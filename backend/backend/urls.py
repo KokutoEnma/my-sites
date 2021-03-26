@@ -33,7 +33,7 @@ class test2(APIView):
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/app/', include('chat.urls')),
+    path('api/chat/', include('chat.urls')),
     path('api/auth/', include('allauth.urls')),
     path('api/auth/', include('social_auth.urls')),
     path('api/ckeditor/', include('ckeditor_uploader.urls')),
