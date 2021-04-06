@@ -23,7 +23,7 @@ export default function AppScreen() {
         { name: 'my status', link: '/status', newWindow: false },
         { name: 'chat', link: '/chat', newWindow: false },
         { name: 'flask movie cinema', link: { pathname: 'https://sqtbackend.azurewebsites.net/ui' }, newWindow: true },
-        { name: 'node angular responsive movie cinema', link: { pathname: 'https://tmdb-node-ng.uk.r.appspot.com/' }, newWindow: true }
+        { name: 'node angular responsive movie cinema', link: { pathname: 'https://nodetmdbangular.ue.r.appspot.com/' }, newWindow: true }
     ]
     return (
         <Grid container>
