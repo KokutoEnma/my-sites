@@ -50,7 +50,7 @@ export default function TopNav(props) {
                 leftLinks={
                     <List className={classes.list}>
                         <ListItem className={classes.listItem + " radius-btn "} >
-                            <Button color="transparent" className={classes.navLink + " " + classes.socialIconsButton} href="https://github.com/AhoyKakkoii" >
+                            <Button color="transparent" className={classes.navLink + " " + classes.socialIconsButton} href="https://github.com/cringe-squirtle" >
                                 <i className="fab fa-github"></i>
                             </Button>
                         </ListItem>

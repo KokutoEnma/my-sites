@@ -23,7 +23,8 @@ export default function AppScreen() {
         { name: 'my status', link: '/status', newWindow: false },
         { name: 'chat', link: '/chat', newWindow: false },
         { name: 'flask movie cinema', link: { pathname: 'http://flsk.shaw-yu.com' }, newWindow: true },
-        { name: 'node angular responsive movie cinema', link: { pathname: 'http://ndng.shaw-yu.com' }, newWindow: true }
+        { name: 'node angular responsive movie cinema', link: { pathname: 'http://ndng.shaw-yu.com' }, newWindow: true },
+        { name: 'Simple Manga Reader', link: { pathname: 'http://manga.shaw-yu.com' }, newWindow: true }
     ]
     return (
         <Grid container>
