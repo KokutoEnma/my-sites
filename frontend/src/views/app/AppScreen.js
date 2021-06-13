@@ -6,13 +6,12 @@ import { Link } from 'react-router-dom';
 const useStyles = makeStyles(() => ({
     root: {
         marginTop: 128,
-        marginBottom: 128
+        marginBottom: 128,
+        width: '80%'
     },
     btn: {
         backgroundColor: 'lightblue',
-        color: 'black',
-        marginLeft: 16,
-        marginRight: 16
+        color: 'black'
     }
 }))
 
@@ -27,16 +26,16 @@ export default function AppScreen() {
         { name: 'Simple Manga Reader', link: { pathname: 'http://manga.shaw-yu.com' }, newWindow: true }
     ]
     return (
-        <Grid container>
-            <Grid container className={classes.root} justify='center'>
+        <Grid container justify='center'>
+            <Grid container className={classes.root} justify='flex-start' spacing={10}>
                 {
                     list.map(item => (
                         <Link to={item.link} key={item.name} target={item.newWindow ? '_blank' : ''}>
-                            <div className={'radius-btn ' + classes.btn}>
+                            <Grid item className={'radius-btn ' + classes.btn}>
                                 <Button color='transparent'>
                                     {item.name}
                                 </Button>
-                            </div>
+                            </Grid>
                         </Link>
                     ))
                 }
